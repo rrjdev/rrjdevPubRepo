@@ -1,6 +1,6 @@
 
 
-CREATE COMPUTE MODULE HelloWorld_MF_Compute
+CREATE COMPUTE MODULE IIB_HelloWorld_V1_MF_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
