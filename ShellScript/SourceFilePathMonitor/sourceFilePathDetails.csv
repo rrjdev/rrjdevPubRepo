@@ -1,0 +1,3 @@
+Type,Host,Username,Password,Interface_Id,Server_Path,File_Pattern,Time_Interval_Min
+Linux,<remote_1_ip>,<usr_1>,<encrpt_pass_1>,1000,<src_file_path_1>,<file_pattern_1>,<mins_1>
+Linux,<remote_2_ip>,<usr_2>,<encrpt_pass_2>,1001,<src_file_path_2>,<file_pattern_2>,<mins_2>

@@ -1,0 +1,20 @@
+
+                                     ===== SOURCE FILE PATH STATUS REPORT =====                                     
+
+*** Run Time : 2021-09-21_01-51-37 ***
+
+
+
+SOURCE DIRECTORY: <src_file_path_1>
+
+FILE NAME(S):
+			item 003 Test.xml item_Test.New.Sample_001.xml item_Test.New.Sample_002.xml item.xml
+
+
+
+SOURCE DIRECTORY: <src_file_path_2>
+
+FILE NAME(S):
+			shpcnf.xml
+
+.......................................................................
