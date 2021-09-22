@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @rrjdev
+- 👋 Hi, I’m @rrjdev & this is my public repository.
 - 👀 I’m interested in Coding & Learning New Technologies.
 - 🌱 I’m currently learning various Integration Tools.
 - 💞️ I’m looking to collaborate on Python, Automation and Integration Tools.
