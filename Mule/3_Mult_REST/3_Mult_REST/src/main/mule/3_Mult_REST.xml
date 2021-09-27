@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3fd0bd9b-d810-4040-9e78-b6a15e611517" >
+		<http:listener-connection host="0.0.0.0" port="8084" />
+	</http:listener-config>
+	<flow name="3_Get_RESTFlow" doc:id="87820d10-2b41-4bcc-b4dd-2a6a133e6544" >
+		<http:listener doc:name="Get_Listener" doc:id="e0eebe0f-248a-4918-a0ba-3eb21a09e4b3" config-ref="HTTP_Listener_config" path="/get"/>
+		<logger level="INFO" doc:name="Logger" doc:id="96cc141e-3400-4215-9cca-218cea0ca50d" message='"Get method is invoked."'/>
+	</flow>
+	<flow name="3_Post_RESTFlow" doc:id="71e36cec-b4a8-48de-8ffd-df6d8fd9fa62" >
+		<http:listener doc:name="Post_Listener" doc:id="07272499-f45e-4a9e-b1f7-d7c128e77231" config-ref="HTTP_Listener_config" path="/post"/>
+		<logger level="INFO" doc:name="Logger" doc:id="584913f5-7841-4048-b9c7-1507f6ccfa4c" message='"Post method invoked."'/>
+	</flow>
+</mule>
