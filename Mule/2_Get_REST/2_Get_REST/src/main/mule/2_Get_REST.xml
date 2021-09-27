@@ -8,9 +8,9 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<http:listener-connection host="0.0.0.0" port="8082" />
 	</http:listener-config>
 	<flow name="2_Get_RESTFlow" doc:id="2f833c80-17df-41a6-bec3-69bda4456bf1" >
-		<http:listener doc:name="/GET REST" doc:id="f05f8b90-8fe1-4e72-937d-501e07eefce0" config-ref="HTTP_Listener_config" path="/getREST"/>
+		<http:listener doc:name="/GET REST" doc:id="f05f8b90-8fe1-4e72-937d-501e07eefce0" config-ref="HTTP_Listener_config" path="/getREST" allowedMethods="GET"/>
 		<logger level="INFO" doc:name="Logger" doc:id="ada4313d-2859-4dcf-a788-7966db01990d" message='"Get method invoked."'/>
 		<set-variable value="1" doc:name="Set Variable" doc:id="148ca57a-8bbb-4832-b7b1-12ea0a2abb4b" variableName="testVar"/>
-		<logger level="INFO" doc:name="Logger" doc:id="672b5db2-73da-4bbf-946d-e6f5dfee7b07" message='"Value of test var is : " #[vars.testVar]&#10;---&#10;vars.testVar'/>
+		<logger level="INFO" doc:name="Logger" doc:id="672b5db2-73da-4bbf-946d-e6f5dfee7b07" message='"Value of test var is : " #[vars.testVar]'/>
 	</flow>
 </mule>
