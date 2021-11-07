@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7cbd6421-0ce2-49ba-a8e5-d60c67915d04" >
+		<http:listener-connection host="0.0.0.0" port="8085" />
+	</http:listener-config>
+	<flow name="4_REST_WS_InvokeFlow" doc:id="4d5ccbb8-2ebd-4ad6-b4a2-29f97cba6f75" >
+		<http:listener doc:name="REST_WS_Invoke_Listener" doc:id="8914dda9-936b-4c48-81fb-6f7cd9ccf95b" config-ref="HTTP_Listener_config" path="/restWSInvoke"/>
+		<logger level="INFO" doc:name="Request Logger" doc:id="98e33fab-9a45-434e-9ea7-e991859c21a0" message='Before REST WS Invoke' />
+		<http:request method="GET" doc:name="Request" doc:id="36e56f1c-8a7d-47fa-a928-3ce708d0a01c" url="https://dummy.restapiexample.com/api/v1/employee/1">
+			<ee:repeatable-file-store-stream bufferUnit="MB" />
+		</http:request>
+		<logger level="INFO" doc:name="Response Logger" doc:id="3ffc365b-06cd-4e38-b37c-4a679183dbf1" message='"Response after REST WS Invoke: " #[payload]'/>
+	</flow>
+</mule>
