@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_QueryParam_config" doc:name="HTTP Listener config" doc:id="983243fd-0eb6-4138-a517-600d3f67111a" >
+		<http:listener-connection host="0.0.0.0" port="8086" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="7e05bb7c-7ed5-48cf-91f5-11d9b2909012">
+	</http:request-config>
+	<flow name="5_REST_QueryParamFlow" doc:id="631d0f2a-688d-47f7-8548-212752840fc1" >
+		<http:listener doc:name="Listener" doc:id="88d6c2f7-4ba0-4a78-859b-a1675cd9c68b" config-ref="HTTP_Listener_QueryParam_config" path="/queryParam"/>
+		<set-variable value="#[attributes.queryParams.ID]" doc:name="Set Variable" doc:id="63f5bc5b-71ce-47d3-8678-4379c86e5e00" variableName="ID"/>
+		<logger level="INFO" doc:name="Logger" doc:id="4f75bbd3-5b4c-4f02-98ba-a7789db6f1ae" message='Query Param value :  #[vars.ID]'/>
+		<http:request method="GET" doc:name="Request" doc:id="253bcd9f-88a5-4818-aa4d-01e8ee34c483" url="https://reqres.in/api/users/#[vars.ID]">
+		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="086d3c88-9104-4ec5-a9df-172452799b81" message='"Response from REST service: "#[payload]'/>
+	</flow>
+</mule>
