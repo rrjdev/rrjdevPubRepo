@@ -23,6 +23,7 @@ public class AESUtils {
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16); 
             secretKey = new SecretKeySpec(key, "AES");
+            
         } 
         catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -80,4 +81,3 @@ public class AESUtils {
 
 	}
 }
-
